@@ -8,7 +8,7 @@ type Props = {
 const NavItem = ({ isCollapsed, children }: Props) => {
   return (
     <div
-      className={`flex w-full flex-col hover:bg-slate-100 hover:text-blue-600 md:w-fit [&_p]:px-2 ${
+      className={`z-50 flex w-full flex-col bg-white hover:bg-slate-100 hover:text-blue-600 md:flex md:w-fit [&_p]:px-2 [&_svg]:mx-2 ${
         isCollapsed ? 'hidden' : 'justify-center'
       }`}
     >

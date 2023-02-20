@@ -11,9 +11,9 @@ const Dropdown = ({ category, children }: Props) => {
 
   return (
     <div
-      className={`flex flex-col gap-2 ${
+      className={`flex flex-col ${
         !isVisible && '[&_p:nth-child(n+2)]:hidden'
-      } bg-white hover:[&>p]:bg-slate-100`}
+      } hover:[&>p:nth-child(n+2)]:bg-slate-200`}
       onMouseOver={() => setIsVisible((prev) => !prev)}
       onMouseOut={() => setIsVisible(false)}
     >

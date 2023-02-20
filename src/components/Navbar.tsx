@@ -1,19 +1,15 @@
 import { useState } from 'react';
-import { ShoppingCart, User, Menu } from 'react-feather';
+import { ShoppingCart, User, Menu, X } from 'react-feather';
 import Dropdown from './Dropdown';
 import NavItem from './NavItem';
 
 const Navbar = () => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
 
   return (
-    <nav className="h-[52px] border-b border-slate-400 p-2">
-      <div
-        className={`flex flex-wrap items-start justify-between ${
-          !isCollapsed && 'gap-5'
-        } md:gap-0`}
-      >
-        <div className="flex items-center gap-2">
+    <nav className="h-[64px] border-b border-slate-400 py-2">
+      <div className={`flex flex-wrap items-start justify-between`}>
+        <div className="flex items-center gap-2 pt-2">
           <img
             src="https://assets.website-files.com/593997d928ae740a8b033d30/593997da28ae740a8b0341e1_LAPIS-LAZULI_ICON.png"
             alt="site logo"
@@ -27,10 +23,10 @@ const Navbar = () => {
           className="flex cursor-pointer items-start p-2 md:hidden"
           onClick={() => setIsCollapsed((prev) => !prev)}
         >
-          <Menu />
+          {isCollapsed ? <Menu /> : <X />}
         </div>
         <div
-          className={`flex w-full cursor-pointer flex-col items-start gap-5 pt-2 text-blue-800 md:w-fit md:flex-row [&_p]:cursor-pointer`}
+          className={`flex w-full cursor-pointer flex-col items-start pt-[15px] text-blue-800 md:w-fit md:flex-row md:pt-[11px] [&_p]:cursor-pointer [&_p]:pb-5`}
         >
           <NavItem isCollapsed={isCollapsed}>
             <Dropdown category="Bracelets">
@@ -54,7 +50,7 @@ const Navbar = () => {
             </Dropdown>
           </NavItem>
         </div>
-        <div className="flex w-full flex-col gap-5 pt-1 md:flex md:w-fit md:flex-row [&_div]:cursor-pointer">
+        <div className="flex w-full flex-col md:flex md:w-fit md:flex-row md:pt-2 [&>*]:pb-5 [&_div]:cursor-pointer">
           <NavItem isCollapsed={isCollapsed}>
             <ShoppingCart />
           </NavItem>
